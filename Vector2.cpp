@@ -18,7 +18,7 @@ public:
 public:
 	void Normalise()
 	{
-			float Magnitude = sqrt(m_PosX * m_PosX + m_PosY * m_PosY);
+			float Magnitude = std::sqrt(m_PosX * m_PosX + m_PosY * m_PosY);
 			if(Magnitude != 0){
 				m_PosX /= Magnitude;
 				m_PosY /= Magnitude;
@@ -53,26 +53,3 @@ public:
 
 };
 
-
-int main()
-{
-	Vector2D v1 = { 3.1,4.2 };
-	Vector2D v2 = { 5.4 , 6.9 };
-	v1.Print(); v2.Print();
-	
-	
-	float dotproduct = Vector2D::Dot(v1, v2);
-	LOG(dotproduct);
-	float crossproduct = Vector2D::Cross(v1, v2);
-	LOG(crossproduct);
-
-
-	Vector2D temp = Vector2D::Add(v1, v2);
-	temp.Print();
-
-	v1.Normalise();
-	v1.Print();
-
-	v1.MultByConst(4);
-	v1.Print();
-}
